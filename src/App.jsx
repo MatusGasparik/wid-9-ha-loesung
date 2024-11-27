@@ -1,10 +1,16 @@
-import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import Header from "./Header";
+import { VegaLite } from "react-vega";
+import spec from "./global-health.json";
 
-function App() {
+export function App() {
   return (
-    <div>
-      <Typography variant="h1">Hello React+MUI</Typography>
-    </div>
+    <>
+      <Header />
+      <Box sx={{ padding: 2 }}>
+        <VegaLite spec={spec} />
+      </Box>
+    </>
   );
 }
 

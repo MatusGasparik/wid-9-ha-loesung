@@ -1,34 +1,52 @@
-# React + MUI Vorlage
+# WID 9 - HA-Lösung
 
-## Installation
+## Vega-Lite Beispiel
 
-### 1. Neues Repository erstellen
+https://vega.github.io/vega-lite/examples/interactive_global_development.html
 
-- für neuen Projekte einfach die "Use this template" Funktion von GitHub verwenden:
-  ![alt text](public/image-1.png)
+## Einbinden von Daten
 
-### 2. Installieren
+### 1. Option
 
-1. Neues Projekt Repository in ein gewünschtes lokate Verzeichnis klonen:
+- Mit `altair` (Jupyter) Spec+Daten als eine Spec-JSON exportieren
 
-```sh
-git clone <repo-url>
+### 2. Option
+
+- Datensatz finden und in der Spec verlinken
+
+**Vega-Lite Spec**:
+
+- Dieses Beispiel nutzt die `gapminder.json` Daten
+
+```json
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "An interactive scatter plot of global health statistics by country and year.",
+  "data": { "url": "data/gapminder.json" },
+  "width": 800,
+  "height": 500
+  // ...
+}
 ```
 
-2. In der Projektordner wechseln:
+**Datensatz finden**:
 
-```sh
-cd <repo-name>
-```
+- https://github.com/vega/vega-datasets/tree/next
+- "raw" Ansicht wählen
 
-3. `npm` Abhängigkeiten installieren:
+![alt text](image.png)
 
-```sh
-npm install
-```
+**Spec anpassen**
 
-4. dev-Server starten:
-
-```sh
-npm run dev
+```json
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "An interactive scatter plot of global health statistics by country and year.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vega/vega-datasets/refs/heads/next/data/gapminder.json"
+  },
+  "width": 800,
+  "height": 500
+  // ...
+}
 ```
